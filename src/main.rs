@@ -84,7 +84,7 @@ fn add_todo_item(new_item: Json<TodoItemData>) -> Result<Json<StatusMessage>, St
     
     let completed = &new_item.completed;
 
-    let results = stmt.execute([description, &completed]);
+    let results = stmt.execute([description, &completed]); //problem
     
     match results {
         Ok(rows_affected) => Ok(Json(StatusMessage { message : format!("{} rows affected", rows_affected) })),
